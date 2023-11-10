@@ -30,7 +30,7 @@ impl data {
 
 // populate model
 impl model {
-    pub fn new(data: data) -> Self {
+    pub fn new(data: &data) -> Self {
 
     }
 }
