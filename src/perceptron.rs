@@ -1,19 +1,19 @@
 mod perceptron {
 
 // shape struct
-struct shape {
+struct Shape {
     rows: u32,
     columns: u32,
 }
 
 // model struct
-struct model {
+struct Model {
     shape: struct shape,
     weights: Vec<f64>,
 }
 
 // data struct
-struct data {
+struct Data {
     shape: struct shape,
     elements: Vec<Vec<f64>>,
     targets: Vec<f64>,
