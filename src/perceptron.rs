@@ -1,5 +1,7 @@
 mod perceptron {
 
+use std::fs;
+
 // shape struct
 struct Shape {
     rows: u32,
@@ -24,7 +26,16 @@ struct Data {
 // populate data
 impl Data {
     pub fn new(filename: str) -> Self {
+        let contents = fs::read_to_string(filename)
+            .expect("Failed to read file {}", filename);
 
+        let lines = contents.split("\n")
+            .collect();
+        let rows = lines.len();
+
+        // get lines, map to f64
+        // collect into 2d Vector
+        // print successful load message
     }
 }
 
