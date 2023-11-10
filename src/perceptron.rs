@@ -22,8 +22,18 @@ struct data {
 // get shape 
 
 // populate data
+impl data {
+    pub fn new(filename: str) -> Self {
+
+    }
+}
 
 // populate model
+impl model {
+    pub fn new(data: data) -> Self {
+
+    }
+}
 
 // fit model 
 
