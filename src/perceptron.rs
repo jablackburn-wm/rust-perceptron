@@ -42,13 +42,15 @@ impl Data {
 // populate model
 impl Model {
     pub fn new(data: &Data) -> Self {
-
+        // get dimentions from data & set shape
+        // create random array of weights
+        // print successful Model init message
     }
 }
 
-// fit model 
-
 // sgd
+
+// fit model 
 
 // predict
 
