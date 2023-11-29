@@ -18,7 +18,7 @@ struct Model {
 struct Data {
     shape: Shape,
     elements: Vec<Vec<f64>>,
-    targets: Vec<f64>,
+    targets: Vec<i32>,
 }
 
 // get shape 
@@ -33,9 +33,28 @@ impl Data {
             .collect();
         let rows = lines.len();
 
-        // get lines, map to f64
-        // collect into 2d Vector
-        // print successful load message
+        let mut elements: Vec<Vec<f64>> = Vec::new();
+        let mut targets: Vec<i32> = Vec::new();
+
+        for line in lines {
+            let items = line.split(" ");
+                .collect()
+                .map(|s| s.parse<f64>().unwrap());
+
+            targets.push(
+                items.pop()
+                   .unwrap()
+                   .round() 
+                   as i32
+            );
+
+            features.push(items);
+        }
+
+        Data {
+            elements,
+            targets
+        }
     }
 }
 
