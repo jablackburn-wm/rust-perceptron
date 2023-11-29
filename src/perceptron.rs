@@ -16,8 +16,10 @@ struct Data {
 // populate data
 impl Data {
     pub fn new(filename: str) -> Self {
+        println!("========== LOADING DATA ==========");
+
         let contents = fs::read_to_string(filename)
-            .expect("Failed to read file {}", filename);
+            .expect("Failed to read file: {}.", filename);
 
         let lines = contents.split("\n")
             .collect();
@@ -39,6 +41,8 @@ impl Data {
 
             features.push(items);
         }
+
+        println!("Successfully loaded data from file: {}!", filename);
 
         Data {
             elements,
