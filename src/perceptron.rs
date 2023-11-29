@@ -2,26 +2,16 @@ mod perceptron {
 
 use std::fs;
 
-// shape struct
-struct Shape {
-    rows: u32,
-    columns: u32,
-}
-
 // model struct
 struct Model {
-    shape: Shape,
     weights: Vec<f64>,
 }
 
 // data struct
 struct Data {
-    shape: Shape,
     elements: Vec<Vec<f64>>,
     targets: Vec<i32>,
 }
-
-// get shape 
 
 // populate data
 impl Data {
@@ -31,7 +21,6 @@ impl Data {
 
         let lines = contents.split("\n")
             .collect();
-        let rows = lines.len();
 
         let mut elements: Vec<Vec<f64>> = Vec::new();
         let mut targets: Vec<i32> = Vec::new();
