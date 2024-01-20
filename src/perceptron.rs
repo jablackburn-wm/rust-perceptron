@@ -70,6 +70,10 @@ impl Model {
         }
 
         println!("Successfully initialized model");
+
+        Model {
+            weights;
+        }
     }
 }
 
