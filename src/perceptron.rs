@@ -55,7 +55,15 @@ impl Data {
 impl Model {
     pub fn new(data: &Data) -> Self {
         // get dimentions from data & set shape
+        let length = data.elements.len();
+
         // create random array of weights
+        let weights = Vec::new();
+        for i in 0..length {
+            // create random float between 0 and 1
+            // push to weights
+        }
+
         // print successful Model init message
     }
 }
