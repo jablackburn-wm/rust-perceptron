@@ -1,6 +1,7 @@
 mod perceptron {
 
 use std::fs;
+use rand::thread_rng;
 
 // model struct
 struct Model {
@@ -54,17 +55,21 @@ impl Data {
 // populate model
 impl Model {
     pub fn new(data: &Data) -> Self {
+        println!("========== BUILDING MODEL ==========");
+
         // get dimentions from data & set shape
         let length = data.elements.len();
 
         // create random array of weights
-        let weights = Vec::new();
+        let weights: Vec<f64> = Vec::new();
+        let mut range = rand::thread_rng();
+
         for i in 0..length {
-            // create random float between 0 and 1
-            // push to weights
+            let weight = range.gen();
+            weights.push( weight );
         }
 
-        // print successful Model init message
+        println!("Successfully initialized model");
     }
 }
 
