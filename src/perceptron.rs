@@ -5,6 +5,7 @@ use rand::thread_rng;
 
 // model struct
 struct Model {
+    data: &Data,
     weights: Vec<f64>,
 }
 
@@ -72,7 +73,8 @@ impl Model {
         println!("Successfully initialized model");
 
         Model {
-            weights;
+            data,
+            weights
         }
     }
 }
