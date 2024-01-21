@@ -53,8 +53,9 @@ impl Data {
     }
 }
 
-// populate model
 impl Model {
+
+    // populate model
     pub fn new(data: &Data) -> Self {
         println!("========== BUILDING MODEL ==========");
 
@@ -77,15 +78,27 @@ impl Model {
             weights
         }
     }
-}
 
-// sgd
+    // sgd
+    fn sgd(&self, current_index: i32) {
+        //TODO
+    }
 
-// fit model 
+    // predict
+    fn predict(&self) {
+        //TODO
+    }
 
-// predict
+    // fit model 
+    fn fit(&self) {
+        //TODO
+    }
 
-// evaluate model
+    // evaluate model
+    fn evaluate(&self, filename: str) {
+        //TODO
+    }
+
 
 
 }
