@@ -21,7 +21,7 @@ impl Data {
         println!("========== LOADING DATA ==========");
 
         let contents = fs::read_to_string(filename)
-            .expect("Failed to read file: {}.", filename);
+            .expect("Failed to read data file");
 
         let lines = contents.split("\n")
             .collect();
