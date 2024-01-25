@@ -4,13 +4,13 @@ use std::fs;
 use rand::thread_rng;
 
 // model struct
-struct Model {
+pub struct Model {
     data: &Data,
     weights: Vec<f64>,
 }
 
 // data struct
-struct Data {
+pub struct Data {
     elements: Vec<Vec<f64>>,
     targets: Vec<i32>,
 }
