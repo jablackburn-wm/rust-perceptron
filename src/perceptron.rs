@@ -30,7 +30,7 @@ impl Data {
         let mut targets: Vec<i32> = Vec::new();
 
         for line in lines {
-            let items = line.split(" ");
+            let items = line.split(" ")
                 .collect()
                 .map(|s| s.parse<f64>().unwrap());
 
@@ -57,7 +57,7 @@ impl Data {
         for feature_vector in self.elements {
             print!("{:?}", feature_vector);
             println!("{}", self.targets[i]);
-            i++;
+            i += 1;
         }
     }
 
