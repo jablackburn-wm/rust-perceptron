@@ -17,7 +17,7 @@ pub struct Data {
 
 // populate data
 impl Data {
-    pub fn new(filename: str) -> Self {
+    pub fn new(filename: &str) -> Self {
         println!("========== LOADING DATA ==========");
 
         let contents = fs::read_to_string(filename)
@@ -105,7 +105,7 @@ impl Model {
     }
 
     // evaluate model
-    fn evaluate(&self, filename: str) {
+    fn evaluate(&self, filename: &str) {
         //TODO
     }
 
