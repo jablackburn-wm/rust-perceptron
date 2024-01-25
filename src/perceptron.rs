@@ -41,7 +41,7 @@ impl Data {
                    as i32
             );
 
-            features.push(items);
+            elements.push(items);
         }
 
         println!("Successfully loaded data from file: {}!", filename);
