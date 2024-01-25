@@ -1,4 +1,4 @@
-mod perceptron {
+pub mod perceptron {
 
 use std::fs;
 use rand::thread_rng;

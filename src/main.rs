@@ -1,8 +1,8 @@
 mod perceptron;
-use perceptron::*;
+use crate::perceptron::perceptron::*;
 
 fn main() {
     let data = Data::new("train.dat");
-    data::display_data();
+    data.display_data();
 }
 
