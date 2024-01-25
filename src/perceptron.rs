@@ -32,7 +32,7 @@ impl Data {
         for line in lines {
             let items = line.split(" ")
                 .collect()
-                .map(|s| s.parse<f64>().unwrap());
+                .map(|s| s.parse::<f64>().unwrap());
 
             targets.push(
                 items.pop()
