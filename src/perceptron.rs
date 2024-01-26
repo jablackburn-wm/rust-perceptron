@@ -23,16 +23,15 @@ impl Data {
         let contents = fs::read_to_string(filename)
             .expect("Failed to read data file");
 
-        let lines = contents.split("\n")
-            .collect();
+        let lines = contents.split("\n");
 
         let mut elements: Vec<Vec<f64>> = Vec::new();
         let mut targets: Vec<i32> = Vec::new();
 
         for line in lines {
             let items = line.split(" ")
-                .collect()
-                .map(|s| s.parse::<f64>().unwrap());
+                .map(|s| s.parse::<f64>().unwrap())
+                .collect::<Vec<f64>>();
 
             targets.push(
                 items.pop()
