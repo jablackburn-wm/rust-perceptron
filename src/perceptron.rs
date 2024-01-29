@@ -5,7 +5,7 @@ use rand::thread_rng;
 
 // model struct
 pub struct Model {
-    data: &Data,
+    data: Data,
     weights: Vec<f64>,
 }
 
@@ -65,7 +65,7 @@ impl Data {
 impl Model {
 
     // populate model
-    pub fn new(data: &Data) -> Self {
+    pub fn new(data: Data) -> Self {
         println!("========== BUILDING MODEL ==========");
 
         // get dimentions from data & set shape
