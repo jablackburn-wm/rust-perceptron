@@ -1,7 +1,7 @@
 pub mod perceptron {
 
 use std::fs;
-use rand::thread_rng;
+use rand::Rng;
 
 // model struct
 pub struct Model {
