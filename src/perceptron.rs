@@ -53,7 +53,7 @@ impl Data {
 
     pub fn display_data(&self) {
         let mut i = 0;
-        for feature_vector in self.elements {
+        for feature_vector in &self.elements {
             print!("{:?}", feature_vector);
             println!("{}", self.targets[i]);
             i += 1;
