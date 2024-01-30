@@ -75,7 +75,7 @@ impl Model {
         let weights: Vec<f64> = Vec::new();
         let mut range = rand::thread_rng();
 
-        for i in 0..length {
+        for _i in 0..length {
             let weight = range.gen();
             weights.push( weight );
         }
