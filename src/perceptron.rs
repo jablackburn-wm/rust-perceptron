@@ -29,7 +29,7 @@ impl Data {
         let mut targets: Vec<i32> = Vec::new();
 
         for line in lines {
-            let items = line.split(" ")
+            let mut items = line.split(" ")
                 .map(|s| s.parse::<f64>().unwrap())
                 .collect::<Vec<f64>>();
 
