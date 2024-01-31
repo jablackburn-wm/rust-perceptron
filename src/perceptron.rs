@@ -45,7 +45,7 @@ impl Data {
 
         }
 
-        println!("Successfully loaded data from file: {}!", filename);
+        println!("Successfully loaded data from file: {}! \n", filename);
 
         Data {
             elements,
@@ -54,12 +54,15 @@ impl Data {
     }
 
     pub fn display_data(&self) {
+        println!("========== DISPLAYING DATA ==========\n");
+
         let mut i = 0;
         for feature_vector in &self.elements {
             print!("{:?}", feature_vector);
-            println!("{}", self.targets[i]);
+            println!("  {}", self.targets[i]);
             i += 1;
         }
+        println!("\n");
     }
 
 }
