@@ -23,7 +23,7 @@ impl Data {
         let contents = fs::read_to_string(filename)
             .expect("Failed to read data file");
 
-        let lines = contents.split("\n");
+        let lines = contents.lines();
 
         let mut elements: Vec<Vec<f64>> = Vec::new();
         let mut targets: Vec<i32> = Vec::new();
@@ -33,6 +33,7 @@ impl Data {
                 .map(|s| s.parse::<f64>().unwrap())
                 .collect::<Vec<f64>>();
 
+
             targets.push(
                 items.pop()
                    .unwrap()
@@ -41,6 +42,7 @@ impl Data {
             );
 
             elements.push(items);
+
         }
 
         println!("Successfully loaded data from file: {}!", filename);
@@ -72,7 +74,7 @@ impl Model {
         let length = data.elements.len();
 
         // create random array of weights
-        let weights: Vec<f64> = Vec::new();
+        let mut weights: Vec<f64> = Vec::new();
         let mut range = rand::thread_rng();
 
         for _i in 0..length {
