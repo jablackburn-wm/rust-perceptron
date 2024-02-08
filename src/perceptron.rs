@@ -104,7 +104,10 @@ impl Model {
 
     // sgd
     fn sgd(&mut self, current_index: i32) {
-        //TODO
+        let target = self.data.targets[current_index];
+        // get length from data struct
+        // iterate backwards over data weights, weight += target * current feature
+        // weights[0] += target
     }
 
     // predict
