@@ -74,7 +74,7 @@ impl Model {
         println!("========== BUILDING MODEL ==========");
 
         // get dimentions from data & set shape
-        let length = data.elements[0].length() + 1;
+        let length = data.elements[0].len() + 1;
 
         // create random array of weights
         let mut weights: Vec<f64> = Vec::new();
