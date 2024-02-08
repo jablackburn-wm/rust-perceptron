@@ -94,7 +94,7 @@ impl Model {
     }
 
     // sgd
-    fn sgd(&self, current_index: i32) {
+    fn sgd(&mut self, current_index: i32) {
         //TODO
     }
 
