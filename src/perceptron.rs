@@ -116,8 +116,15 @@ impl Model {
     }
 
     // predict
-    fn predict(&self) {
-        //TODO
+    fn predict(&self, current_index: usize) -> isize {
+        let mut hypothesis: f64 = 0.0;
+
+        for i in 0..self.data.dimentions {
+            hypothesis += self.weights[self.data.dimentions - i] * self.data.elements[current_index][i];
+        }
+
+        if hypothesis < 0.0 { return -1; }
+        1
     }
 
     // fit model 
