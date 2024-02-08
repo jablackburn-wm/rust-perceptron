@@ -13,6 +13,7 @@ pub struct Model {
 pub struct Data {
     elements: Vec<Vec<f64>>,
     targets: Vec<i32>,
+    dimentions: usize,
 }
 
 // populate data
@@ -33,7 +34,6 @@ impl Data {
                 .map(|s| s.parse::<f64>().unwrap())
                 .collect::<Vec<f64>>();
 
-
             targets.push(
                 items.pop()
                    .unwrap()
@@ -42,14 +42,16 @@ impl Data {
             );
 
             elements.push(items);
-
         }
+
+        let dimentions = elements[0].len() + 1;
 
         println!("Successfully loaded data from file: {}! \n", filename);
 
         Data {
             elements,
-            targets
+            targets,
+            dimentions
         }
     }
 
@@ -103,7 +105,7 @@ impl Model {
     }
 
     // sgd
-    fn sgd(&mut self, current_index: i32) {
+    fn sgd(&mut self, current_index: usize) {
         let target = self.data.targets[current_index];
         // get length from data struct
         // iterate backwards over data weights, weight += target * current feature
