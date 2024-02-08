@@ -85,12 +85,21 @@ impl Model {
             weights.push( weight );
         }
 
-        println!("Successfully initialized model");
+        println!("Successfully initialized model\n");
 
         Model {
             data,
             weights
         }
+    }
+
+    pub fn display_model(&self) {
+        println!("========== DISPLAYING MODEL WEIGHTS ==========\n");
+
+        for weight in &self.weights {
+            println!("{}", weight);
+        }
+        println!("\n");
     }
 
     // sgd

@@ -6,5 +6,6 @@ fn main() {
     data.display_data();
 
     let model = Model::new(data);
+    model.display_model();
 }
 
