@@ -13,7 +13,8 @@ pub struct Model {
 pub struct Data {
     elements: Vec<Vec<f64>>,
     targets: Vec<i32>,
-    dimentions: usize,
+    rows: usize,
+    columns: usize,
 }
 
 // populate data
@@ -44,14 +45,16 @@ impl Data {
             elements.push(items);
         }
 
-        let dimentions = elements[0].len() + 1;
+        let rows = elements.len();
+        let columns = elements[0].len() + 1;
 
         println!("Successfully loaded data from file: {}! \n", filename);
 
         Data {
             elements,
             targets,
-            dimentions
+            rows,
+            columns
         }
     }
 
@@ -108,8 +111,8 @@ impl Model {
     fn sgd(&mut self, current_index: usize) {
         let target = self.data.targets[current_index];
 
-        for i in 1..self.data.dimentions {
-            self.weights[i] += target as f64 * self.data.elements[current_index][self.data.dimentions - i];
+        for i in 1..self.data.columns {
+            self.weights[i] += target as f64 * self.data.elements[current_index][self.data.columns - i];
         }
 
         self.weights[0] += target as f64;
@@ -119,8 +122,8 @@ impl Model {
     fn predict(&self, current_index: usize) -> isize {
         let mut hypothesis: f64 = 0.0;
 
-        for i in 0..self.data.dimentions {
-            hypothesis += self.weights[self.data.dimentions - i] * self.data.elements[current_index][i];
+        for i in 0..self.data.columns {
+            hypothesis += self.weights[self.data.columns - i] * self.data.elements[current_index][i];
         }
 
         if hypothesis < 0.0 { return -1; }
@@ -132,7 +135,7 @@ impl Model {
         bool misclassified = true;
         while (misclassified) {
             misclassified = false;
-            for i in 0..self.data.rows {//TODO implement data.rows / data.columns instead of dimentions
+            for i in 0..self.data.rows {
                 let hypothesis = self.predict(i);
                 let target = self.data.targets[i];
                 // TODO if target == hypothesis continue
