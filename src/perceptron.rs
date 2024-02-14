@@ -111,7 +111,7 @@ impl Model {
         let target = self.data.targets[current_index];
 
         for i in 1..self.data.columns {
-            self.weights[i] += target as f64 * self.data.elements[current_index][self.data.columns - i];
+            self.weights[i] += target as f64 * self.data.elements[current_index][self.data.columns - 1 - i];
         }
 
         self.weights[0] += target as f64;
@@ -121,8 +121,8 @@ impl Model {
     fn predict(&self, current_index: usize) -> isize {
         let mut hypothesis: f64 = 0.0;
 
-        for i in 0..self.data.columns {
-            hypothesis += self.weights[self.data.columns - i] * self.data.elements[current_index][i];
+        for i in 0..self.data.columns - 1 {
+            hypothesis += self.weights[self.data.columns - 1 - i] * self.data.elements[current_index][i];
         }
 
         if hypothesis < 0.0 { return -1; }

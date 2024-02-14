@@ -5,7 +5,9 @@ fn main() {
     let data = Data::new("train.dat");
     data.display_data();
 
-    let model = Model::new(data);
+    let mut model = Model::new(data);
+    model.display_model();
+    model.fit();
     model.display_model();
 }
 
