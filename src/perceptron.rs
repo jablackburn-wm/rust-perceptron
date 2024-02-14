@@ -131,7 +131,7 @@ impl Model {
 
     // fit model 
     fn fit(&self) {
-        bool misclassified = true;
+        let mut misclassified = true;
         while (misclassified) {
             misclassified = false;
             for i in 0..self.data.rows {
