@@ -129,7 +129,17 @@ impl Model {
 
     // fit model 
     fn fit(&self) {
-        //TODO
+        bool misclassified = true;
+        while (misclassified) {
+            misclassified = false;
+            for i in 0..self.data.rows {//TODO implement data.rows / data.columns instead of dimentions
+                let hypothesis = self.predict(i);
+                let target = self.data.targets[i];
+                // TODO if target == hypothesis continue
+                self.sgd(i);
+                misclassified = true;
+            }
+        }
     }
 
     // evaluate model
