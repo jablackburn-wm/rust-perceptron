@@ -130,7 +130,7 @@ impl Model {
     }
 
     // fit model 
-    fn fit(&self) {
+    fn fit(&mut self) {
         let mut misclassified = true;
         while (misclassified) {
             misclassified = false;
