@@ -78,8 +78,7 @@ impl Model {
     pub fn new(data: Data) -> Self {
         println!("========== BUILDING MODEL ==========");
 
-        // get dimentions from data & set shape
-        let length = data.elements[0].len() + 1;
+        let length = data.columns;
 
         // create random array of weights
         let mut weights: Vec<f64> = Vec::new();
