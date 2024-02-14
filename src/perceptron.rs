@@ -132,7 +132,7 @@ impl Model {
     // fit model 
     pub fn fit(&mut self) {
         let mut misclassified = true;
-        while (misclassified) {
+        while misclassified {
             misclassified = false;
             for i in 0..self.data.rows {
                 let hypothesis = self.predict(i);
