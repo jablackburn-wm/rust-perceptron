@@ -137,7 +137,7 @@ impl Model {
             for i in 0..self.data.rows {
                 let hypothesis = self.predict(i);
                 let target = self.data.targets[i];
-                // TODO if target == hypothesis continue
+                if target as isize == hypothesis { continue } ;
                 self.sgd(i);
                 misclassified = true;
             }
