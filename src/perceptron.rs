@@ -146,7 +146,7 @@ impl Model {
 
     // evaluate model
     fn evaluate(&self, filename: &str) {
-        //TODO
+        training_data = Data::new(filename);
     }
 
 }

@@ -9,5 +9,8 @@ fn main() {
     model.display_model();
     model.fit();
     model.display_model();
+
+    model.evaluate("test.dat");
+
 }
 
