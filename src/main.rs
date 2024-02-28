@@ -11,6 +11,5 @@ fn main() {
     model.display_model();
 
     model.evaluate("test.dat");
-
 }
 

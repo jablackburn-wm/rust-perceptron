@@ -147,6 +147,13 @@ impl Model {
     // evaluate model
     pub fn evaluate(&self, filename: &str) {
         let training_data = Data::new(filename);
+
+        let mut correct = 0;
+        for i in 0..training_data.rows { 
+            if self.predict(&training_data, i) == training_data.targets[i] as isize { correct += 1 }
+        }
+        let percent_correct = correct as f64 / training_data.rows as f64 * 100.0;
+        println!("Model Evaluation: {}% accuracy", percent_correct);
     }
 
 }
