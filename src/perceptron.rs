@@ -118,11 +118,11 @@ impl Model {
     }
 
     // predict
-    fn predict(&self, current_index: usize) -> isize {
+    fn predict(&self, data: &Data, current_index: usize) -> isize {
         let mut hypothesis: f64 = 0.0;
 
-        for i in 0..self.data.columns - 1 {
-            hypothesis += self.weights[self.data.columns - 1 - i] * self.data.elements[current_index][i];
+        for i in 0..data.columns - 1 {
+            hypothesis += self.weights[data.columns - 1 - i] * data.elements[current_index][i];
         }
 
         if hypothesis < 0.0 { return -1; }
@@ -135,7 +135,7 @@ impl Model {
         while misclassified {
             misclassified = false;
             for i in 0..self.data.rows {
-                let hypothesis = self.predict(i);
+                let hypothesis = self.predict(&self.data, i);
                 let target = self.data.targets[i];
                 if target as isize == hypothesis { continue } ;
                 self.sgd(i);
@@ -145,8 +145,8 @@ impl Model {
     }
 
     // evaluate model
-    fn evaluate(&self, filename: &str) {
-        training_data = Data::new(filename);
+    pub fn evaluate(&self, filename: &str) {
+        let training_data = Data::new(filename);
     }
 
 }
