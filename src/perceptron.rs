@@ -1,6 +1,7 @@
 pub mod perceptron {
 
 use std::fs;
+use std::io;
 use rand::Rng;
 
 // model struct
@@ -167,12 +168,28 @@ impl Model {
         hypothesis += self.weights[2] * x;
         hypothesis += self.weights[1] * y;
 
-        if hypothesis < 0.0 { println!("prediction: -1") }
+        if hypothesis < 0.0 { 
+            println!("prediction: -1");
+            return;
+        }
         println!("prediction: 1");
     }
 
     fn get_valid_float() -> f64 {
-        return 0.0; //TODO implement get user input
+        let mut input_string = String::new();
+        loop {
+            io::stdin()
+                .read_line(&mut input_string)
+                .expect("Failed to read input");
+
+            let input_float = input_string
+                .trim()
+                .parse::<f64>()
+                .expect("Failed to parse input to float");
+
+            if (input_float <= 1.0) & (input_float >= -1.0) { return input_float; }
+            println!("invalid input: must be between 1 and -1");
+        }
     }
 
 }
