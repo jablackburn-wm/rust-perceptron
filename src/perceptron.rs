@@ -156,6 +156,25 @@ impl Model {
         println!("Model Evaluation: {}% accuracy", percent_correct);
     }
 
+    pub fn predict_from_xy(&self) {
+        println!("input a number between -1 and 1 for x:");
+        let x = Self::get_valid_float();
+        println!("input a number between -1 and 1 for y:");
+        let y = Self::get_valid_float();
+        
+        let mut hypothesis: f64 = 0.0;
+
+        hypothesis += self.weights[2] * x;
+        hypothesis += self.weights[1] * y;
+
+        if hypothesis < 0.0 { println!("prediction: -1") }
+        println!("prediction: 1");
+    }
+
+    fn get_valid_float() -> f64 {
+        return 0.0; //TODO implement get user input
+    }
+
 }
 
 }

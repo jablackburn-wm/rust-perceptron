@@ -11,5 +11,7 @@ fn main() {
     model.display_model();
 
     model.evaluate("test.dat");
+
+    model.predict_from_xy();
 }
 
