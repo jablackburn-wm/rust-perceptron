@@ -46,7 +46,7 @@ impl Data {
         }
 
         let rows = elements.len();
-        let columns = elements[0].len() + 1;
+        let columns = elements[0].len();
 
         println!("Successfully loaded data from file: {}! \n", filename);
 
@@ -78,7 +78,7 @@ impl Model {
     pub fn new(data: Data) -> Self {
         println!("========== BUILDING MODEL ==========");
 
-        let length = data.columns;
+        let length = data.columns + 1;
 
         // create random array of weights
         let mut weights: Vec<f64> = Vec::new();
@@ -110,8 +110,8 @@ impl Model {
     fn sgd(&mut self, current_index: usize) {
         let target = self.data.targets[current_index];
 
-        for i in 1..self.data.columns {
-            self.weights[i] += target as f64 * self.data.elements[current_index][self.data.columns - 1 - i];
+        for i in 1..(self.data.columns + 1) {
+            self.weights[i] += target as f64 * self.data.elements[current_index][self.data.columns - i];
         }
 
         self.weights[0] += target as f64;
@@ -121,8 +121,8 @@ impl Model {
     fn predict(&self, data: &Data, current_index: usize) -> isize {
         let mut hypothesis: f64 = 0.0;
 
-        for i in 0..data.columns - 1 {
-            hypothesis += self.weights[data.columns - 1 - i] * data.elements[current_index][i];
+        for i in 0..data.columns {
+            hypothesis += self.weights[data.columns - i] * data.elements[current_index][i];
         }
 
         if hypothesis < 0.0 { return -1; }
